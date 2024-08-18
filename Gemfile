@@ -9,11 +9,17 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 
 gem "bootsnap", require: false
 
+gem 'devise'
+gem 'devise_token_auth'
+gem 'pundit'                   # For authorization
+gem 'light-service'
+
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
   gem "rubocop", require: false
   gem "rubocop-rails", require: false
   gem "rubocop-rails-omakase", require: false
+  gem 'rspec-rails'
 end
 
 group :development do
