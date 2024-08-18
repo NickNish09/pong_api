@@ -31,4 +31,8 @@ end
 
 group :development do
 end
-gem "sassc-rails"
+
+gem "administration-zero", "~> 1.0"
+gem "pagy"
+gem "ransack"
+gem "spreadsheet_architect"

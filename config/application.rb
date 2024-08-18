@@ -20,6 +20,10 @@ Bundler.require(*Rails.groups)
 
 module PongApi
   class Application < Rails::Application
+    # Provides an HTML generator for displaying errors that come from Active Model
+    config.action_view.field_error_proc = Proc.new do |html_tag, instance|
+      raw Nokogiri::HTML.fragment(html_tag).child.add_class("is-invalid")
+    end
     config.load_defaults 7.1
     config.autoload_lib(ignore: %w[assets tasks])
     config.api_only = true
