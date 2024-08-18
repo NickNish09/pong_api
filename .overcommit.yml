@@ -20,8 +20,9 @@ PreCommit:
     enabled: true
     on_warn: fail # Treat all warnings as failures
 
-CapitalizedSubject:
-  enabled: false
+CommitMsg:
+  CapitalizedSubject:
+    enabled: false
 #
 #  TrailingWhitespace:
 #    enabled: true
