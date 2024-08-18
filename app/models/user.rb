@@ -19,4 +19,10 @@ class User < ActiveRecord::Base
             uniqueness: { case_sensitive: false, scope: :provider }
   validates :preferred_hand, presence: true
   validates :gender, presence: true
+
+  private
+
+  def self.ransackable_attributes(auth_object = nil)
+    []
+  end
 end
