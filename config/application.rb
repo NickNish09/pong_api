@@ -1,7 +1,9 @@
+
 require_relative "boot"
 
 require "rails"
 # Pick the frameworks you want:
+require "sprockets/railtie"
 require "active_model/railtie"
 require "active_job/railtie"
 require "active_record/railtie"
@@ -20,6 +22,10 @@ Bundler.require(*Rails.groups)
 
 module PongApi
   class Application < Rails::Application
+    # Provides an HTML generator for displaying errors that come from Active Model
+    config.action_view.field_error_proc = Proc.new do |html_tag, instance|
+      raw Nokogiri::HTML.fragment(html_tag).child.add_class("is-invalid")
+    end
     config.load_defaults 7.1
     config.autoload_lib(ignore: %w[assets tasks])
     config.api_only = true
