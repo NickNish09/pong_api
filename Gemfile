@@ -14,6 +14,8 @@ gem "devise_token_auth"
 gem "pundit"                   # For authorization
 gem "light-service"
 
+gem "rails_admin"
+
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
   gem "rubocop", require: false
@@ -31,3 +33,4 @@ end
 
 group :development do
 end
+gem "sassc-rails"
