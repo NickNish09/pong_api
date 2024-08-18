@@ -1,1 +1,9 @@
-inherit_from: .rubocop_todo.yml
+inherit_gem:
+  rubocop-rails-omakase:
+    - config/rails.yml
+
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.3.4
+
+# If there are any specific rules you want to customize or override, add them below.
