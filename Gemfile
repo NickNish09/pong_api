@@ -26,6 +26,7 @@ end
 
 group :test do
   gem "shoulda-matchers", "~> 6.0"
+  gem 'pundit-matchers', '~> 3.1'
 end
 
 group :development do
