@@ -20,6 +20,12 @@ group :development, :test do
   gem "rubocop-rails", require: false
   gem "rubocop-rails-omakase", require: false
   gem "rspec-rails"
+  gem "factory_bot_rails"
+  gem "faker"
+end
+
+group :test do
+  gem "shoulda-matchers", "~> 6.0"
 end
 
 group :development do
