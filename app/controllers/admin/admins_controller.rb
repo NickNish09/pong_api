@@ -1,4 +1,4 @@
-class Admin::UsersController < Admin::BaseController
+class Admin::AdminsController < Admin::BaseController
   before_action :set_user, only: %i[ show edit update destroy ]
 
   def index
@@ -24,7 +24,7 @@ class Admin::UsersController < Admin::BaseController
     @user = Admin::User.new(user_params)
 
     if @user.save
-      redirect_to @user, notice: "User was successfully created."
+      redirect_to admin_admin_url(@user), notice: "Admin was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -32,7 +32,7 @@ class Admin::UsersController < Admin::BaseController
 
   def update
     if @user.update(user_params)
-      redirect_to @user, notice: "User was successfully updated."
+      redirect_to admin_admin_url(@user), notice: "Admin was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -40,7 +40,7 @@ class Admin::UsersController < Admin::BaseController
 
   def destroy
     @user.destroy
-    redirect_to admin_users_url, notice: "User was successfully destroyed."
+    redirect_to admin_admins_url, notice: "Admin was successfully destroyed."
   end
 
   private

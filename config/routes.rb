@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     get    "sign_in",  to: "sessions#new"
     post   "sign_in",  to: "sessions#create"
     delete "sign_out", to: "sessions#destroy"
-    resources :users, only: [ :index, :show, :create, :update, :destroy, :new, :edit ]
+    resources :admins, only: [ :index, :show, :create, :update, :destroy, :new, :edit ]
     resource :password_reset, only: [ :create, :new, :edit ]
   end
   mount_devise_token_auth_for "User", at: "auth"
