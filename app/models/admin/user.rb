@@ -9,6 +9,6 @@ class Admin::User < Admin::ApplicationRecord
   end
 
   def self.ransackable_attributes(auth_object = nil)
-    [ "created_at", "email", "id", "id_value", "password_digest", "updated_at" ]
+    %w[created_at email id id_value password_digest updated_at]
   end
 end
