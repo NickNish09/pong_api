@@ -22,9 +22,7 @@ class User < ActiveRecord::Base
   validates :preferred_hand, presence: true
   validates :gender, presence: true
 
-  private
-
   def self.ransackable_attributes(auth_object = nil)
-    []
+    %w[name email id created_at updated_at nickname uid provider birthdate preferred_hand allow_password_change]
   end
 end
