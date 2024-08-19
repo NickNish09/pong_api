@@ -2,6 +2,8 @@
 
 class User < ActiveRecord::Base
   include DeviseTokenAuth::Concerns::User
+  include SpreadsheetArchitect
+
   EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   devise :database_authenticatable, :registerable,
