@@ -1,0 +1,78 @@
+<%= form_with(model: [:admin, user]) do |form| %>
+  <div class="form-group row mb-2">
+    <%= form.label :provider, class: "form-label col-md-3 col-form-label" %>
+    <div class="col-md px-0">
+      <%= form.text_field :provider, class: "form-control" %>
+      <%= tag.div user.errors[:provider].first, class: "invalid-feedback" %>
+    </div>
+  </div>
+
+  <div class="form-group row mb-2">
+    <%= form.label :uid, class: "form-label col-md-3 col-form-label" %>
+    <div class="col-md px-0">
+      <%= form.text_field :uid, class: "form-control" %>
+      <%= tag.div user.errors[:uid].first, class: "invalid-feedback" %>
+    </div>
+  </div>
+
+  <div class="form-group row mb-2">
+    <%= form.label :allow_password_change, class: "form-check-label col-md-3 col-form-label" %>
+    <div class="col-md px-0">
+      <%= form.check_box :allow_password_change, class: "form-check-input" %>
+      <%= tag.div user.errors[:allow_password_change].first, class: "invalid-feedback" %>
+    </div>
+  </div>
+
+  <div class="form-group row mb-2">
+    <%= form.label :name, class: "form-label col-md-3 col-form-label" %>
+    <div class="col-md px-0">
+      <%= form.text_field :name, class: "form-control" %>
+      <%= tag.div user.errors[:name].first, class: "invalid-feedback" %>
+    </div>
+  </div>
+
+  <div class="form-group row mb-2">
+    <%= form.label :nickname, class: "form-label col-md-3 col-form-label" %>
+    <div class="col-md px-0">
+      <%= form.text_field :nickname, class: "form-control" %>
+      <%= tag.div user.errors[:nickname].first, class: "invalid-feedback" %>
+    </div>
+  </div>
+
+  <div class="form-group row mb-2">
+    <%= form.label :email, class: "form-label col-md-3 col-form-label" %>
+    <div class="col-md px-0">
+      <%= form.text_field :email, class: "form-control" %>
+      <%= tag.div user.errors[:email].first, class: "invalid-feedback" %>
+    </div>
+  </div>
+
+  <div class="form-group row mb-2">
+    <%= form.label :preferred_hand, class: "form-label col-md-3 col-form-label" %>
+    <div class="col-md px-0">
+      <%= form.select :preferred_hand, User.preferred_hands.keys.map { |hand| [hand.humanize, hand] }, {}, class: "form-control" %>
+      <%= tag.div user.errors[:preferred_hand].first, class: "invalid-feedback" %>
+    </div>
+  </div>
+
+  <div class="form-group row mb-2">
+    <%= form.label :gender, class: "form-label col-md-3 col-form-label" %>
+    <div class="col-md px-0">
+      <%= form.select :gender, User.genders.keys.map { |gender| [gender.humanize, gender] }, {}, class: "form-control" %>
+      <%= tag.div user.errors[:gender].first, class: "invalid-feedback" %>
+    </div>
+  </div>
+
+  <div class="form-group row mb-2">
+    <%= form.label :birthdate, class: "form-label col-md-3 col-form-label" %>
+    <div class="col-md px-0">
+      <%= form.date_field :birthdate, class: "form-control" %>
+      <%= tag.div user.errors[:birthdate].first, class: "invalid-feedback" %>
+    </div>
+  </div>
+
+  <div class="form-footer">
+    <%= form.submit class: "btn btn-primary" %>
+    <%= link_to "Cancel", admin_users_path, class: "btn btn-white" %>
+  </div>
+<% end %>

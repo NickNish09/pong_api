@@ -2,6 +2,8 @@
 
 class User < ActiveRecord::Base
   include DeviseTokenAuth::Concerns::User
+  include SpreadsheetArchitect
+
   EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   devise :database_authenticatable, :registerable,
@@ -19,4 +21,8 @@ class User < ActiveRecord::Base
             uniqueness: { case_sensitive: false, scope: :provider }
   validates :preferred_hand, presence: true
   validates :gender, presence: true
+
+  def self.ransackable_attributes(auth_object = nil)
+    %w[name email id created_at updated_at nickname uid provider birthdate preferred_hand allow_password_change]
+  end
 end

@@ -1,2 +1,2 @@
-//= link admin/logo.svg
-//= link admin/000m.jpg
+//= link admin/logo.png
+//= link admin/logo-horizontal.png
